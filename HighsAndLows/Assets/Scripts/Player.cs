@@ -58,6 +58,11 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	public void StopMovement(Rigidbody rigidBody)
+	{
+		rigidBody.isKinematic = true;
+	}
+
 	private bool CheckGrounded()
 	{
 		if (Physics.Raycast (transform.position, Vector3.down, GroundProximityTolerence))
@@ -68,8 +73,10 @@ public class Player : MonoBehaviour {
 
 	private void HandleInput()
 	{
-		if (Input.GetKey (KeyCode.R))
-			ResetPlayer ();
+		if (Input.GetKey(KeyCode.R))
+		{
+			ResetPlayer();
+		}
 
 		if (CheckGrounded() == true)
 			if (Input.GetKey (KeyCode.Space))
