@@ -3,6 +3,8 @@ using System.Collections;
 
 public class LevelGoal : MonoBehaviour {
 
+	public AudioSource playSound;
+	
 	private GameObject gc;
 
 	void Start()
@@ -12,6 +14,8 @@ public class LevelGoal : MonoBehaviour {
 
 	void OnTriggerEnter ()
 	{
+		playSound.Play();
+
 		gc.GetComponent<GameController> ().GoToNextScene ();
 	}
 
